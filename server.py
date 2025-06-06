@@ -19,8 +19,8 @@ print("Connection received. Starting player...")
 
 try:
     # --- THIS LINE IS CHANGED ---
-    # We add '--avcodec-hw=none' to disable problematic hardware acceleration
-    cmdline = ['vlc', '--demux', 'h264', '--avcodec-hw=none', '-']
+    # We add '--live-caching=100' to reduce the playback buffer to 100ms
+    cmdline = ['vlc', '--demux', 'h264', '--avcodec-hw=none', '--live-caching=100', '-']
     player = subprocess.Popen(cmdline, stdin=subprocess.PIPE)
     while True:
         # Repeatedly read 1k of data from the connection and write it to
